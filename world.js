@@ -1,38 +1,31 @@
-window.onload = function () {
-    // Lookup button for countries
-    let search = document.getElementById("lookup");
-    
-    search.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default form submission
-        let country = document.getElementById("country").value.trim(); // Trim whitespace
-        fetchData(country); // Fetch data for country lookup
-    });
 
-    // Function to fetch data via AJAX
-    function fetchData(country) {
-        if (country === "") {
-            alert("Please enter a search term."); // Alert if input is empty
-            return;
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('lookup').addEventListener('click', function() {
+        const countryInput = document.getElementById('country').value;
 
-        let h_req = new XMLHttpRequest(); // Create a new XMLHttpRequest object
-        h_req.onreadystatechange = function () {
-            if (h_req.readyState === XMLHttpRequest.DONE) {
-                if (h_req.status === 200) {
-                    let resultDiv = document.getElementById("result");
-                    resultDiv.innerHTML = h_req.responseText; // Display fetched data
-                } else {
-                    alert("Error fetching data. Please try again!"); // Alert on error
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `world.php?country=${encodeURIComponent(countryInput)}`, true);
+        xhr.onload = function(){
+            if(xhr.status >= 200 && xhr.status < 300){
+                const results = JSON.parse(xhr.responseText);
+                const resultdiv = document.getElementById('result');
+
+                resultdiv.innerHTML = '';
+
+                if(results.length > 0){
+                    results.forEach(country => {
+                        const countrydiv = document.createElement('div');
+                        countrydiv.textContent = `Country: ${country.name}, Population: ${country.population}`;
+                        resultdiv.appendChild(countrydiv);
+                    });
+                } else{
+                    resultdiv.textContent = 'No country found.';
                 }
+            } else{
+                console.error('Error fetching data:', xhr.statusText);
             }
         };
 
-        // Construct the endpoint URL with the country parameter
-        let endpoint = `http://localhost/info2180-lab5/world.php?country=${encodeURIComponent(country)}`;
-        
-        console.log("Fetching data from:", endpoint); // Debugging log
-        h_req.open("GET", endpoint, true); // Open GET request
-        h_req.send(); // Send the request
-    }
-};
-
+        xhr.send();
+    });
+});
