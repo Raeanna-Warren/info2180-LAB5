@@ -1,0 +1,188 @@
+/* Add your own styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+  
+
+header {
+    display: flex;
+    background-color: rgb(14, 130, 151);
+    color: #fff;
+    padding: 20px;
+    justify-content: center;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 6px black;
+
+}
+header img {
+    width: 180px;
+}
+
+header h1 {
+    padding: 60px;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 2px white;
+}
+
+#controls {
+    margin: 0 20px;
+    margin-top: 50px;
+  
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    justify-items: center;
+    row-gap: 20px;
+}
+
+#country {
+    padding: 10px 150px;
+  
+    border-radius: 8px;
+    border: 3px solid rgb(255, 255, 255);
+    outline: 0;
+    border-width: 0 0 2px;
+    box-shadow: 0.5px 1px 3px #a1a1a1;
+}
+#country:focus {
+    border-color: rgb(14, 130, 151);
+}
+
+label {
+    font-weight: bold;
+    padding-bottom: 10px;
+  }
+
+/*BUTTONS STYLING */
+.buttons {
+    display: flex;
+    grid-column: 1/2;
+    column-gap: 5px;
+    margin-bottom: 20px;
+    
+}
+
+
+#lookup,
+#citylookup {
+  color: white;
+  width: 150px;
+
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  color:white;
+    text-shadow: 5px 5px 6px black;
+}
+
+
+
+
+#lookup {
+    background-color: rgb(131, 19, 19);
+}
+  
+#citylookup {
+    background-color: rgb(241, 37, 37);
+}
+
+#lookup:hover,
+#citylookup:hover {
+  cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#result {
+    padding: 4%;
+    margin: 0 50px;
+    margin-bottom: 30px;
+}
+
+
+
+
+/*tABLE AND THE FOOTER*/
+
+table {
+    border-collapse: collapse;
+    background-color: white;
+  }
+  
+  table td,
+  table th {
+    border: 1px solid #ddd;
+    padding: 10px 10px;
+  }
+  
+  table tr:nth-child(even) {
+    background: #970e0e
+  }
+
+  tr:nth-child(odd) {
+	background: #ca6f6f;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+  }
+
+
+
+
+
+
+
+button {
+    font-weight: bold;
+    width:10%;
+    background-color:#970e0e;
+    color:white;
+    text-shadow: 5px 5px 6px black;
+}
+
+.citylookup{
+    float:left;
+
+}
+
+
+
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+	border-style:solid;
+}
+
+tr:nth-child(even) {
+	background: #ca6f6f;
+}
+tr:nth-child(odd) {
+	background: #970e0e;
+}
+
+input{
+	width:500px;
+	height:30px;
+}
+
+
+
